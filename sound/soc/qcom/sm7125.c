@@ -46,7 +46,7 @@ static int sm7125_be_hw_params_fixup(struct snd_soc_pcm_runtime *rtd,
 	rate->min = rate->max = 48000;
 	channels->min = channels->max = 2;
 	snd_mask_none(fmt);
-	snd_mask_set_format(fmt, SNDRV_PCM_FORMAT_S16_LE);
+	snd_mask_set_format(fmt, SNDRV_PCM_FORMAT_S24_LE);
 
 	return 0;
 }
@@ -117,8 +117,8 @@ static int sm7125_snd_hw_params(struct snd_pcm_substream *substream,
 
 		if (!strcmp(codec_dai->component->name_prefix, "Left")) {
 			ret = snd_soc_dai_set_tdm_slot(
-					codec_dai, 0x01,
-					0x03, 8,
+					codec_dai, 0x03,
+					0x03, 2,
 					16);
 			if (ret < 0) {
 				dev_err(rtd->dev,
@@ -129,8 +129,8 @@ static int sm7125_snd_hw_params(struct snd_pcm_substream *substream,
 
 		if (!strcmp(codec_dai->component->name_prefix, "Right")) {
 			ret = snd_soc_dai_set_tdm_slot(
-					codec_dai, 0x02,
-					0x03, 8,
+					codec_dai, 0x03,
+					0x03, 2,
 					16);
 			if (ret < 0) {
 				dev_err(rtd->dev,
