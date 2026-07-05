@@ -648,7 +648,7 @@
 };
 
 &sound {
-	compatible = "qcom,sm7125-sndcard";
+	compatible = "qcom,sm8250-sndcard";
 	pinctrl-0 = <&i2s1_active>;
 	pinctrl-names = "default";
 	audio-routing =
