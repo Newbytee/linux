@@ -14,6 +14,7 @@
 #include "pm6150.dtsi"
 #include "pm6150l.dtsi"
 
+/delete-node/ &cdsp_mem;
 /delete-node/ &rmtfs_mem;
 /delete-node/ &ipa_fw_mem;
 /delete-node/ &tz_mem;
